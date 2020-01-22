@@ -6,7 +6,7 @@ function draw() {
   canvas.id = "mycanvas";
   document.body.appendChild(canvas);
   var ctx = canvas.getContext("2d");
-  ctx.canvas.width  = window.innerWidth;
+  ctx.canvas.width  = window.innerWidth - 10;
   ctx.canvas.height = 200;
   document.getElementById('myContainer').removeAttribute("onclick");
 
@@ -21,7 +21,7 @@ function draw() {
   var ballRadius = 10;
 
   var dx = 2;
-var dy = -2;
+  var dy = -2;
 
   function mousedownHandler(e){
 
@@ -53,8 +53,8 @@ var dy = -2;
   var pos = 0;
   var direction = true;
 
-  var x = canvas.width/2;
-  var y = 0 + ballRadius;
+  var x = 10;
+  var y = 10;
   function drawPaddle() {
       //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -99,25 +99,13 @@ ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
 
-if(x + dx > canvas.width+ballRadius || x + dx < ballRadius) {
-    dx = -dx;
-  }
-  if(y + dy < ballRadius) {
-    dy = -dy;
-  }
-  else if(y + dy > screen.height-100) {
-    if(x > paddleX && x < paddleX + 20) {
-      dy = -dy;
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
     }
-  
-      else {
-        x = canvas.width/2;
-        y = canvas.height-30;
-        dx = 3;
-        dy = -3;
-  
+    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+        dy = -dy;
     }
-  }
+
     y += dy;
     x += dx;
     
