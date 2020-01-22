@@ -78,11 +78,11 @@ function draw() {
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
-    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+    else if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
-    else if (x >= paddleX && x < paddleX + paddleWidth && y > 0 && x != 0 && y != 0 && dy > 0) {
-      if (y = y + 10) {
+    else if (x >= paddleX && x < paddleX + paddleWidth  && x != 0 && y != 0 && dy > 0) {
+      if (y = y + 5) {
         dy = -dy;
         dx = -dx;
   
