@@ -8,7 +8,7 @@ function myMove() {
   var direction = true;
   function frame() {
       
-      if (pos < 333 && direction == true){
+      if (pos < (screen.width - 50) && direction == true){
 
         pos ++;
 
