@@ -52,7 +52,7 @@ function draw() {
 
   var pos = 0;
   var direction = true;
-
+  var paddleWidth = 100;
   var x = 10;
   var y = 10;
   function drawPaddle() {
@@ -71,6 +71,24 @@ function draw() {
     ctx.fillStyle = "#009533";
     ctx.fill();
     ctx.closePath();
+  }
+
+  function collision(){
+
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+        dy = -dy;
+    }
+    else if (x >= paddleX && x < paddleX + paddleWidth && y > 0 && x != 0 && y != 0 && dy > 0) {
+      if (y = y + 10) {
+        dy = -dy;
+        dx = -dx;
+  
+      }
+    }
+
   }
 
 
@@ -98,16 +116,18 @@ function draw() {
 ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
+    
 
-    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
-        dx = -dx;
-    }
-    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
-        dy = -dy;
-    }
+    //ball stuff
+    collision();
+
 
     y += dy;
     x += dx;
+
+
+
+
     
 
     //square stuff      
@@ -135,6 +155,6 @@ ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
   }
-  setInterval(frame,3);
+  setInterval(frame,10);
 
 }
