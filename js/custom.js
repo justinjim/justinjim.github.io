@@ -18,46 +18,49 @@ function draw() {
   var mouseisDown = false;
   var paddleX = (canvas.width-75)/2;
   var mouseX = 0;
-function mousedownHandler(e){
+  function mousedownHandler(e){
 
-  mouseisDown = true;
-  mouseX = e.clientX;
+    mouseisDown = true;
+    mouseX = e.clientX;
   
 
-}
+  }
 
-function keyDownHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true;
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
-    }
-}
+  function keyDownHandler(e) {
+      if(e.key == "Right" || e.key == "ArrowRight") {
+          rightPressed = true;
+      }
+      else if(e.key == "Left" || e.key == "ArrowLeft") {
+          leftPressed = true;
+      }
+  }
 
-function keyUpHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = false;
-    }
-    else if(e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = false;
-    }
-}
+  function keyUpHandler(e) {
+      if(e.key == "Right" || e.key == "ArrowRight") {
+          rightPressed = false;
+      }
+      else if(e.key == "Left" || e.key == "ArrowLeft") {
+          leftPressed = false;
+      }
+  }
 
 
   var pos = 0;
-  //var id = setInterval(frame, 5);
   var direction = true;
   function drawPaddle() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.beginPath();
-    ctx.rect(paddleX, 100, 75, 10);
-    ctx.fillStyle = "#0095DD";
-    ctx.fill();
-    ctx.closePath();
-}
+      ctx.beginPath();
+      ctx.rect(paddleX, 100, 75, 10);
+      ctx.fillStyle = "#0095DD";
+      ctx.fill();
+      ctx.closePath();
+  }
+
+
   function frame() {
+
+    document.getElementById("clicktxt").innerHTML = "click to move the paddle!";
 
       //paddle stuff
     if (mouseisDown){
@@ -78,7 +81,10 @@ function keyUpHandler(e) {
     }
 
     drawPaddle();
-      //square stuff      
+      
+
+
+    //square stuff      
     if (pos < (screen.width - 50) && direction == true){
 
         pos ++;
