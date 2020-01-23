@@ -82,9 +82,9 @@ function draw() {
         dy = -dy;
     }
     else if (x >= paddleX && x < paddleX + paddleWidth  && x != 0 && y != 0 && dy > 0) {
-      if (y = y + 5) {
+      if (y = 100) {
         dy = -dy;
-        dx = -dx;
+   
   
       }
     }
