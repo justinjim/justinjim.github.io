@@ -59,6 +59,7 @@ function draw() {
   var y = 10;
 
   var paddlehit = false;
+  
   function drawPaddle() {
       //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
