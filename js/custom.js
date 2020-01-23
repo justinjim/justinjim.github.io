@@ -2,6 +2,8 @@
 
 function draw() {
   var elem = document.getElementById("myAnimation");
+
+  var jumbotron = document.getElementById("jumbotron");
   var canvas = document.createElement("canvas");
   canvas.id = "mycanvas";
   document.body.appendChild(canvas);
@@ -55,6 +57,8 @@ function draw() {
   var paddleWidth = 100;
   var x = 10;
   var y = 10;
+
+  var paddlehit = false;
   function drawPaddle() {
       //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -80,14 +84,24 @@ function draw() {
     }
     else if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
+       if (x < pos - 25 && x > pos + 25){
+          paddlehit = false;
+      }
     }
     else if (x >= paddleX && x < paddleX + paddleWidth  && x != 0 && y != 0 && dy > 0) {
       if (y = 100) {
         dy = -dy;
-   
+        paddlehit = true;
   
       }
     }
+
+
+    if (paddlehit == true){
+        jumbotron.style.background = "#337ab7";
+
+    }
+
 
   }
 
