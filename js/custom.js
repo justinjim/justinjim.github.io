@@ -8,7 +8,7 @@ function draw() {
   canvas.id = "mycanvas";
   document.body.appendChild(canvas);
   var ctx = canvas.getContext("2d");
-  ctx.canvas.width  = window.innerWidth - 10;
+  ctx.canvas.width  = window.innerWidth;
   ctx.canvas.height = 200;
   document.getElementById('myContainer').removeAttribute("onclick");
 
