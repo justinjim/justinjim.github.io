@@ -80,26 +80,41 @@ function draw() {
   function collision(){
 
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        paddlehit = false;
         dx = -dx;
     }
     else if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
-       if (x < pos - 25 && x > pos + 25){
-          paddlehit = false;
-      }
+        paddlehit = false;
+
     }
     else if (x >= paddleX && x < paddleX + paddleWidth  && x != 0 && y != 0 && dy > 0) {
       if (y = 100) {
         dy = -dy;
+
+        
+
+
         paddlehit = true;
   
       }
     }
 
 
+
+
+
+
     if (paddlehit == true){
         jumbotron.style.background = "#337ab7";
 
+    }
+    else{
+      jumbotron.style.background = "#f37d00";
+    }
+
+    if (x>pos && x < pos+50 && y < 50){
+      jumbotron.style.background = "#2fbc4e";
     }
 
 
@@ -115,18 +130,7 @@ function draw() {
         paddleX = mouseX;
     }
 
-    if(rightPressed) {
-        paddleX += 7;
-        if (paddleX + paddleWidth > canvas.width){
-            paddleX = canvas.width - 75;
-        }
-    }
-    else if(leftPressed) {
-        paddleX -= 7;
-        if (paddleX < 0){
-            paddleX = 0;
-        }
-    }
+   
 ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
