@@ -1,8 +1,6 @@
 
-
 function draw() {
   var elem = document.getElementById("myAnimation");
-
   var jumbotron = document.getElementById("jumbotron");
   var canvas = document.createElement("canvas");
   canvas.id = "mycanvas";
@@ -11,7 +9,6 @@ function draw() {
   ctx.canvas.width  = window.innerWidth;
   ctx.canvas.height = 200;
   document.getElementById('myContainer').removeAttribute("onclick");
-
   document.addEventListener("mousedown", mousedownHandler);
   document.addEventListener("keydown", keyDownHandler, false);
   document.addEventListener("keyup", keyUpHandler, false);
@@ -21,16 +18,12 @@ function draw() {
   var paddleX = (canvas.width-75)/2;
   var mouseX = 0;
   var ballRadius = 10;
-
   var dx = 2;
   var dy = -2;
 
   function mousedownHandler(e){
-
     mouseisDown = true;
     mouseX = e.clientX;
-  
-
   }
 
   function keyDownHandler(e) {
@@ -57,12 +50,10 @@ function draw() {
   var paddleWidth = 100;
   var x = 10;
   var y = 10;
-
   var paddlehit = false;
   
   function drawPaddle() {
       //ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       ctx.beginPath();
       ctx.rect(paddleX, 100, 75, 10);
       ctx.fillStyle = "#0095DD";
@@ -79,7 +70,6 @@ function draw() {
   }
 
   function collision(){
-
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         paddlehit = false;
         dx = -dx;
@@ -87,93 +77,51 @@ function draw() {
     else if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
         paddlehit = false;
-
     }
     else if (x >= paddleX && x < paddleX + paddleWidth  && x != 0 && y != 0 && dy > 0) {
       if (y = 100) {
         dy = -dy;
-
-        
-
-
         paddlehit = true;
-  
       }
     }
-
-
-
-
-
-
     if (paddlehit == true){
         jumbotron.style.background = "#337ab7";
-
     }
     else{
       jumbotron.style.background = "#f37d00";
     }
-
     if (x>pos && x < pos+50 && y < 50){
       jumbotron.style.background = "#2fbc4e";
     }
 
-
   }
 
-
   function frame() {
-
     document.getElementById("clicktxt").innerHTML = "click to move the paddle!";
-
       //paddle stuff
     if (mouseisDown){
         paddleX = mouseX;
     }
-
-   
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
-    
-
     //ball stuff
     collision();
-
-
     y += dy;
-    x += dx;
-
-
-
-
-    
-
+    x += dx;    
     //square stuff      
     if (pos < (screen.width - 50) && direction == true){
-
         pos ++;
-
-
         elem.style.left = pos + 'px';
       }
         else{
           pos --;
           direction = false;
           elem.style.left = pos + 'px';
-
-
         }
-
       if (pos == 0 & direction == false){
         direction = true;
       }
-
-
-
-
-
   }
   setInterval(frame,10);
-
 }
