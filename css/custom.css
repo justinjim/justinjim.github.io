@@ -1,42 +1,18 @@
-
-
-.jumbotron {
-  height: 350px;
-  color: white;
-  text-shadow: #444 0 1px 1px;
-  background:#ff5050;
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-
-
-.jumbotron h1{
-	padding-left: 10%;
-	padding-top: 3%;
+video {
+	display: none;
 }
-
-.jumbotron p{
-	padding-left:10%;
-}
-
-.list-group{
-	margin-top:15%;
-	margin-right: 75%;
-
-}
-
-
-.row{
-
-	padding:20px;
-	text-align: center;
-
-
-}
-
-
-.btn-default{
-	background-color:#ff5050;
-}
-
 
 
 
